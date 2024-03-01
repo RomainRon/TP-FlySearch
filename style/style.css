@@ -8,14 +8,17 @@ body {
 
 @media (max-width: 991px) {
   .sidebar {
-      background-color: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
   }
 }
 
 .ButtonSignUp {
   background-color: #52bfe1;
 }
+<<<<<<< HEAD
+
+=======
 /* Footer */
 footer{
     background-color: black;
@@ -96,3 +99,4 @@ footer{
         margin: 10px;
     }
 }
+>>>>>>> db839753fe4dba16c46a4a25be4e5f522cb2f256

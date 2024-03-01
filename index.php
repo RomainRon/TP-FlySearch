@@ -4,9 +4,7 @@ include './partials/header.php';
 
 ?>
 
-<h1>ComparOperateur</h1>
-
-<p>salut</p>
+<!-- Carrousel PHOTOS Rome --> 
 
 
 
