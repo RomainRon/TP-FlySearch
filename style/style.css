@@ -1,13 +1,18 @@
 body {
-    background: url('../images/backgroundimage.jpg') rgba(0, 0, 0, 0.3);
-    background-blend-mode: multiply;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background: url('../images/backgroundimage.jpg') rgba(0, 0, 0, 0.3);
+  background-blend-mode: multiply;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.playfair-display {
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+@media (max-width: 991px) {
+  .sidebar {
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+  }
+}
+
+.ButtonSignUp {
+  background-color: #52bfe1;
 }
