@@ -17,13 +17,20 @@ class Manager
     public function getAllDestination()
     {
         $preparedRequest = $this->_bdd->prepare(
-            "SELECT * FROM "
+            "SELECT * FROM `destination`"
         );
         $preparedRequest->execute([]);
 
-        $line = $preparedRequest->fetch(PDO::FETCH_ASSOC);
-        // // // $enclos = new Enclosure($line);
-        // // // return $enclos;
+        $line = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
+
+        $destinationArray = [];
+
+        foreach ($line as $key ) {
+            # code...
+            $destination = new Destination($key);
+            array_push($destinationArray, $destination);
+        }
+        return $destinationArray;
     }
 
     // RECUPERER UN OPERATEUR PAR ID //
@@ -31,7 +38,7 @@ class Manager
     public function getOperateurByDestination()
     {
         $preparedRequest = $this->_bdd->prepare(
-            "SELECT"
+            "SELECT * FROM destination where location = ?"
         );
         $preparedRequest->execute([]);
 
@@ -45,7 +52,7 @@ class Manager
     public function createReview()
     {
         $preparedRequest = $this->_bdd->prepare(
-            "INSERT INTO ????"
+            "INSERT INTO review"
         );
         $preparedRequest->execute([]);
     }
@@ -56,7 +63,7 @@ class Manager
     public function getReviewByOperatorId()
     {
         $preparedRequest = $this->_bdd->prepare(
-            "SELECT"
+            "SELECT * FROM review where tour_operator_id = ?"
         );
         $preparedRequest->execute([]);
 
@@ -70,7 +77,7 @@ class Manager
     public function getAllOperator()
     {
         $preparedRequest = $this->_bdd->prepare(
-            "SELECT * FROM "
+            "SELECT * FROM `tour_operator`;"
         );
         $preparedRequest->execute([]);
 

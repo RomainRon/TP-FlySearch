@@ -1,9 +1,7 @@
 body {
   background: url('../images/backgroundimage.jpg') rgba(0, 0, 0, 0.3);
-  background-blend-mode: multiply;
-  background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 @media (max-width: 991px) {
@@ -14,11 +12,12 @@ body {
   .footerNav ul{
     flex-direction: column;
 }
-.footerNav ul li{
+
+    .footerNav ul li{
     width: 100%;
     text-align: center;
     margin: 10px;
-}
+    }
 }
 
 .ButtonSignUp {
@@ -27,12 +26,13 @@ body {
 /* Footer */
 footer{
     background-color: black;
-    position: absolute;bottom: 0;
+    position:static; bottom: 0;
     width: 100%;
+    height:300px;
 }
 .footerContainer{
     width: 100%;
-    padding: 70px 30px 20px;
+    padding:30px;
 }
 .socialIcons{
     display: flex;
@@ -93,5 +93,91 @@ footer{
     letter-spacing: 1px;
     font-weight: 400;
     margin: 0px 5px;
+} 
+
+
+/* CAROUSEL STYLE */
+
+.carousel {
+  position: relative;
+  height: 400px;
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 20rem;
+}
+.carousel__images {
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel__track-container {
+  background: pink;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.carousel__track {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
+}
+.carousel__slide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+.carousel__button {
+  position: absolute;
+  top: 65%;
+  border-radius: 30%;
+  transform: translateY(-50%);
+  border: 0;
+  background-color: #52bfe1;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+.carousel__button:hover {
+  background-color: rgb(254, 215, 222);
+  border-radius: 20px;
 }
 
+.carousel__button--left {
+  left: -40px;
+}
+.carousel__button--right {
+  right: -40px;
+   transform: translateY(-50%) rotate(180deg)
+}
+.carousel__button img {
+  width: 25px;
+}
+.carousel__nav {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  gap: 1rem;
+}
+.carousel__indicator {
+  border: 0;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  cursor: pointer;
+}
+.carousel__indicator.current-slide {
+  background: #52bfe1;
+}
+.is-hidden {
+  display: none;
+}
+
+.formadmin{
+  width: 30%;
+}
