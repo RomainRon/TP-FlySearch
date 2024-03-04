@@ -1,5 +1,11 @@
 <?php
 // include './config/debug.php';
+
+require __DIR__ . '/../config/connexion.php';
+require __DIR__ . '/../config/autoload.php';
+// require __DIR__ . '/..//messages.php';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
-<body class="vh-100 overflow-hidden">
+<body class="vh-100 overflow-auto">
 
 
   <!-- Navbar START -->
@@ -40,7 +46,7 @@
         <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
           <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
             <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item mx-2">
               <a class="nav-link" href="#Link">Link</a>
