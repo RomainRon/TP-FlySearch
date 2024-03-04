@@ -11,14 +11,19 @@ body {
     background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
   }
+  .footerNav ul{
+    flex-direction: column;
+}
+.footerNav ul li{
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+}
 }
 
 .ButtonSignUp {
   background-color: #52bfe1;
 }
-<<<<<<< HEAD
-
-=======
 /* Footer */
 footer{
     background-color: black;
@@ -89,14 +94,4 @@ footer{
     font-weight: 400;
     margin: 0px 5px;
 }
-@media (max-wight:991px){
-    .footerNav ul{
-        flex-direction: column;
-    }
-    .footerNav ul li{
-        width: 100%;
-        text-align: center;
-        margin: 10px;
-    }
-}
->>>>>>> db839753fe4dba16c46a4a25be4e5f522cb2f256
+
