@@ -12,6 +12,7 @@ body {
   .footerNav ul{
     flex-direction: column;
 }
+
     .footerNav ul li{
     width: 100%;
     text-align: center;
