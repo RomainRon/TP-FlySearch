@@ -5,8 +5,7 @@ class Review
     private $_id;
     private $_message;
     private $_author;
-    private $_tourOperatourId;
-
+    private $_tourOperateurId;
     // Constructeur // 
     public function __construct(array $data)
     {
@@ -23,7 +22,34 @@ class Review
             }
         }
     }
+     // RECUPERER TOUTES LES MESSAGES // 
 
+     public function getAllMessage()
+{
+    try {
+        // Préparation de la requête SQL pour sélectionner tous les messages
+        $preparedRequest = $this->_message->prepare(
+            "SELECT * FROM review WHERE id"
+        );
+        // Exécution de la requête SQL
+        $preparedRequest->execute();
+
+        // Récupération de toutes les lignes de résultats sous forme d'un tableau associatif
+        $rows = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
+
+        // Utilisation d'une fonction de mapping de données pour créer les objets Review
+        $messageArray = array_map(function($row) {
+            return new Review($row);
+        }, $rows);
+
+        return $messageArray;
+    } catch (PDOException $e) {
+        // Gestion des erreurs
+
+        throw $e;
+    }
+}
+ 
     // GET - SET ID  // 
     public function getId()
     {
@@ -60,11 +86,11 @@ class Review
     // GET - SET TOUROPERATEURID  // 
     public function getTourOperateurId()
     {
-        return $this->_tourOperatourId;
+        return $this->_tourOperateurId;
     }
 
-    public function setTourOperateurId($tourOperatourId)
+    public function setTourOperateurId($tourOperateurId)
     {
-        $this->_tourOperatourId = $tourOperatourId;
+        $this->_tourOperateurId = $tourOperateurId;
     }
 }
