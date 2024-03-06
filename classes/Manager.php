@@ -33,19 +33,43 @@ class Manager
         return $destinationArray;
     }
 
-    // RECUPERER UN OPERATEUR PAR ID //
+    // RECUPERER UN Destination PAR Name //
+    public function getDestinationByName(string $destinationName)
+{
+    $preparedRequest = $this->_bdd->prepare(
+        "SELECT * FROM destination WHERE location = ?"
+    );
+    $preparedRequest->execute([$destinationName]);
 
-    public function getOperateurByDestination()
-    {
-        $preparedRequest = $this->_bdd->prepare(
-            "SELECT * FROM destination where location = ?"
-        );
-        $preparedRequest->execute([]);
+    $line = $preparedRequest->fetch(PDO::FETCH_ASSOC);    
 
-        $line = $preparedRequest->fetch(PDO::FETCH_ASSOC);
-        // // // $enclos = new Enclosure($line);
-        // // // return $enclos;
+    if (!$line) {
+        return null; // Destinación no encontrada
     }
+
+    return new Destination($line);
+}
+
+// RECUPERER UN Operator par le name de la destination //
+public function getTourOperatorsByDestination(string $destinationName)
+{
+    $preparedRequest = $this->_bdd->prepare(
+        "SELECT * FROM tour_operator JOIN destination ON tour_operator.id = destination.tour_operator_id WHERE destination.location = ?"
+    );
+    $preparedRequest->execute([$destinationName]);
+    $test = $preparedRequest->fetchAll(PDO::FETCH_ASSOC); 
+    
+
+    $tourOperators = [];
+    foreach ($test as $key) {
+        $operator = new TourOperator($key);
+        array_push($tourOperators, $operator);
+    }
+    
+
+    return $tourOperators;
+}
+
 
     // CREATE A REVIEW //
 
@@ -58,18 +82,24 @@ class Manager
     }
 
 
-    // RECUPERER REVIEW SELON L'ID DE L'OPERATEUR //
+    // RECUPERER REVIEWS SELON L'ID DE L'OPERATEUR //
 
-    public function getReviewByOperatorId()
+    public function getReviewsByOperatorId(int $TourOperatorId)
     {
         $preparedRequest = $this->_bdd->prepare(
             "SELECT * FROM review where tour_operator_id = ?"
         );
-        $preparedRequest->execute([]);
+        $preparedRequest->execute([$TourOperatorId]);
 
-        $line = $preparedRequest->fetch(PDO::FETCH_ASSOC);
-        // // // $enclos = new Enclosure($line);
-        // // // return $enclos;
+        $line = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
+        $reviewsArray = [];
+
+        foreach ($line as $key) {
+            $reviews = new Review($key);
+         
+            array_push($reviewsArray, $reviews);
+        }
+        return $reviewsArray;
     }
 
     // RECUPERER TOUTES LES OPERATEURS // 

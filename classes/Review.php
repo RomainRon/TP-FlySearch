@@ -6,6 +6,10 @@ class Review
     private $_message;
     private $_author;
     private $_tourOperateurId;
+<<<<<<< HEAD
+
+=======
+>>>>>>> b8b29934685d6323918d5f20b5a4c80a1fc03cac
     // Constructeur // 
     public function __construct(array $data)
     {
