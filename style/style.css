@@ -12,6 +12,7 @@ body {
   .footerNav ul{
     flex-direction: column;
 }
+
     .footerNav ul li{
     width: 100%;
     text-align: center;
@@ -261,14 +262,4 @@ footer{
 
 .comment-box .submit:hover {
   background: var(--hover-color);
-}
-#scroll {
-  max-height: 600px;  / Définissez la hauteur maximale souhaitée /
-  overflow-y: scroll;   / Ajoutez une barre de défilement vertical si nécessaire /
-  border: 1px solid #ccc;  / Facultatif : Ajoutez une bordure pour mieux visualiser la div /
-  padding: 10px;   / Facultatif : Ajoutez un peu de rembourrage pour un meilleur aspect */
-  margin-bottom: 8px;
-  margin-top: 30px;
-  display: flex;
-  align-content: center;
 }

@@ -25,6 +25,7 @@ $destinations = $manager->getAllDestination();
             echo '<div class="col-md-6 mt-4">';
         }
     ?>
+</div>
 
         <!-- Carrousel PHOTOS Rome -->
         <div class="carousel">
