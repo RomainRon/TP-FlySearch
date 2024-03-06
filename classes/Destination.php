@@ -5,7 +5,7 @@ class Destination
     private $_id;
     private $_location;
     private $_price;
-    private $_tourOperatourId;
+    private $_tourOperateurId;
 
     // Constructeur // 
     public function __construct(array $data)
@@ -60,11 +60,11 @@ class Destination
     // GET - SET TOUROPERATEURID  // 
     public function getTourOperateurId()
     {
-        return $this->_tourOperatourId;
+        return $this->_tourOperateurId;
     }
 
-    public function setTourOperateurId($tourOperatourId)
+    public function setTourOperateurId($tourOperateurId)
     {
-        $this->_tourOperatourId = $tourOperatourId;
+        $this->_tourOperateurId = $tourOperateurId;
     }
 }
