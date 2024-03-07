@@ -191,11 +191,6 @@ footer{
   --shadow-color: #0002;
 }
 
-.flex {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
 
 .comment-box {
   background: #fff;
