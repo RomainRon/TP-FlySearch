@@ -12,13 +12,9 @@ class TourOperator
     // Constructeur // 
     public function __construct(array $data)
 
-    {
-
-      
+    {      
         $this->hydrate($data);
-        if($data['tour_operator_id']){
-            $this->setId($data['tour_operator_id']);
-        }
+        
     }
 
     // Hydrateur // 
