@@ -13,7 +13,7 @@ $operators = $manager->getTourOperatorsByDestination($destination->getLocation()
 
 ?>
 
-<h1 class="text-white">Operators for this destination:</h1>
+<h1 class="text-white text-center">Operators for this destination:</h1>
 
 <div class="row">
     <?php foreach ($operators as $operator) {

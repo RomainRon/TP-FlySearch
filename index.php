@@ -61,8 +61,8 @@ foreach ($destinations as $destination) {
             <button class="carousel__indicator"></button>
             <button class="carousel__indicator"></button>
         </div>
-        <a href="./DetailDestination.php" style="text-decoration:none">
-            <button type="" class="ButtonSignUp ButtonSignUp text-black text-decoration-none px-3 py-1 rounded-4 d-block mx-auto mt-3">Take a look</button>
+        <a href="./DetailDestination.php?destination=<?=$destination->getLocation()?>" style="text-decoration:none">
+            <button type="button" class="ButtonSignUp ButtonSignUp text-black text-decoration-none px-3 py-1 rounded-4 d-block mx-auto mt-3">Take a look</button>
         </a>
     </div>
 <?php

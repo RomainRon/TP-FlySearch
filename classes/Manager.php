@@ -17,7 +17,7 @@ class Manager
     public function getAllDestination()
     {
         $preparedRequest = $this->_bdd->prepare(
-            "SELECT * FROM `destination`"
+            "SELECT * FROM `destination` GROUP BY location"
         );
         $preparedRequest->execute([]);
 
@@ -111,11 +111,46 @@ public function getTourOperatorsByDestination(string $destinationName)
         );
         $preparedRequest->execute([]);
 
-        $line = $preparedRequest->fetch(PDO::FETCH_ASSOC);
-        // // // $enclos = new Enclosure($line);
-        // // // return $enclos;
+        $line = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
+
+        return $line;
     }
 
+    public function getAllOperatorPremium()
+    {
+        $preparedRequest = $this->_bdd->prepare(
+            "SELECT * FROM `tour_operator` WHERE is_premium = 1;"
+        );
+        $preparedRequest->execute([]);
+
+        $line = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
+
+        $TOArray = [];
+
+        foreach ($line as $key ) {
+            $TO = new TourOperator($key);
+            array_push($TOArray, $TO);
+        }
+        return $TOArray;
+    }
+
+    public function getAllOperatorRegular()
+    {
+        $preparedRequest = $this->_bdd->prepare(
+            "SELECT * FROM `tour_operator` WHERE is_premium = 0;"
+        );
+        $preparedRequest->execute([]);
+
+        $line = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
+
+        $TOArray = [];
+
+        foreach ($line as $key ) {
+            $TO = new TourOperator($key);
+            array_push($TOArray, $TO);
+        }
+        return $TOArray;
+    }
     // UPDATE OPERATOR TO PREMIUM 
 
     public function updateOperatorToPremium()
